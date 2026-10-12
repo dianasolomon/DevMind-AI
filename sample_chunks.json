@@ -1,0 +1,38 @@
+[
+  {
+    "chunk_id": "demo-project:src/UserService.java:12:30",
+    "project_id": "demo-project",
+    "file_path": "src/UserService.java",
+    "language": "java",
+    "symbol_type": "method",
+    "symbol_name": "createUser",
+    "class_name": "UserService",
+    "start_line": 12,
+    "end_line": 30,
+    "code": "public User createUser(String name) {\n    User u = new User(name);\n    return userRepository.save(u);\n}"
+  },
+  {
+    "chunk_id": "demo-project:app/auth.py:5:20",
+    "project_id": "demo-project",
+    "file_path": "app/auth.py",
+    "language": "python",
+    "symbol_type": "function",
+    "symbol_name": "verify_password",
+    "class_name": null,
+    "start_line": 5,
+    "end_line": 20,
+    "code": "def verify_password(plain, hashed):\n    return bcrypt.checkpw(plain.encode(), hashed)"
+  },
+  {
+    "chunk_id": "demo-project:src/UserService.java:1:60",
+    "project_id": "demo-project",
+    "file_path": "src/UserService.java",
+    "language": "java",
+    "symbol_type": "class",
+    "symbol_name": "UserService",
+    "class_name": "UserService",
+    "start_line": 1,
+    "end_line": 60,
+    "code": "public class UserService {\n    // handles user creation and lookup\n}"
+  }
+]
