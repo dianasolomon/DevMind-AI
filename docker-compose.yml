@@ -1,0 +1,42 @@
+# DevMind AI – Local Development Services
+# Provides PostgreSQL and Qdrant for integration testing
+# Usage: docker-compose up -d
+#
+# NOTE: Spring Boot currently uses H2 (no Docker needed for dev).
+# Use this file when integrating with Member 5's DB work.
+
+version: "3.9"
+
+services:
+
+  # PostgreSQL – project metadata (Member 5's responsibility)
+  postgres:
+    image: postgres:16-alpine
+    container_name: devmind-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: devmind
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Qdrant – vector database (Member 5's responsibility)
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: devmind-qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+volumes:
+  postgres_data:
+  qdrant_data:
